@@ -483,6 +483,9 @@ body {
     max-height: 100vh !important; }
 
   body {
+    height: 100vh !important; }
+
+  html {
     height: 100vh !important; } }
 @media screen and (max-width: 991px) {
   #mobile {
