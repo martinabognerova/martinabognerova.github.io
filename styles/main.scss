@@ -278,8 +278,8 @@ body {font-family: 'Khand', sans-serif;}
   {
     #left img {max-height: 100vh !important;}
     #left {max-height: 100vh !important;}
-    body {height: 100vh !important;}
-    html {height: 100vh !important;}
+    body {height: 100vh !important; overflow: hidden !important;}
+    html {height: 100vh !important; overflow: hidden !important;}
 
   }
   @media screen and (max-width: 991px)

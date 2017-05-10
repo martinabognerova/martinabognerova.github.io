@@ -483,10 +483,12 @@ body {
     max-height: 100vh !important; }
 
   body {
-    height: 100vh !important; }
+    height: 100vh !important;
+    overflow: hidden !important; }
 
   html {
-    height: 100vh !important; } }
+    height: 100vh !important;
+    overflow: hidden !important; } }
 @media screen and (max-width: 991px) {
   #mobile {
     display: block; }
