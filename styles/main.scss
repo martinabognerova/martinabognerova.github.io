@@ -277,7 +277,8 @@ body {font-family: 'Khand', sans-serif;}
   @media screen and (min-width: 992px)
   {
     #left img {max-height: 100vh !important;}
-    
+    #left {max-height: 100vh !important;}
+
   }
   @media screen and (max-width: 991px)
   {
