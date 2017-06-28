@@ -207,10 +207,19 @@ function fixCols()
   var ww = $(window).width();
   var wh = $(window).height();
 
+
   var leftWidth = wh*ratio;
   var rightWidth = ww-leftWidth;
 
+  if (rightWidth < 300)
+  {
+    $('body').addClass('wrongRatio');
+  } else {
+    $('body').removeClass('wrongRatio');
+  }
+
   $('#left .item img').css('max-height',(wh - $('#footer').outerHeight() - $('#copyright').outerHeight())+'px');
+
   $('#left').width(leftWidth);
   $('#right').width(rightWidth);
 
