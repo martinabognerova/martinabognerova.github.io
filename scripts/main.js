@@ -108,8 +108,8 @@ $(window).load(function(){
     });
 
     $('#cycle-detail-img').on('cycle-next', function(event, hash){
-      console.log(event);
-      console.log(hash);
+      //console.log(event);
+      //console.log(hash);
       var slideNum = preloaderCount;
       preloaderCount++;
       if(slideNum < detailSlides.length)
