@@ -249,7 +249,7 @@ function fixCols()
 
 
   var leftWidth = wh*ratio;
-  var rightWidth = ww-leftWidth;
+  var rightWidth = ww-leftWidth - 1;
 
   if (rightWidth < 300)
   {
