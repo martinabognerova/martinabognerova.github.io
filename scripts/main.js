@@ -45,13 +45,25 @@ $(window).load(function(){
     var detailSlides = [];
 
     $.each(_detailSlides, function(ind, val){
+
       var slideNum = ("0" + (ind+1)).slice(-2);
       var allSlides = ("0" + (_detailSlides.length)).slice(-2);
 
+      if (_detailSlides.length > 100)
+      {
+        slideNum = ("00" + (ind+1)).slice(-3);
+        allSlides = ("00" + (_detailSlides.length)).slice(-3);
+      }
+
       var $infoSlide = $('<div class="item"><p><strong>'+slideNum+'</strong>/'+allSlides+'</p><h2>'+_detailSlides[ind]+'</h2></div>');
       $infoSlide.appendTo($('#cycle-detail-info'));
-      var imgSrc = _detailPath + slideNum + '.jpg';
-      var imgSrc2 = _detailPath + slideNum + '@2x.jpg';
+      var slideNumFile = ind + 1;
+      if (slideNumFile < 10)
+      {
+        slideNumFile = '0' + slideNumFile;
+      }
+      var imgSrc = _detailPath + slideNumFile + '.jpg';
+      var imgSrc2 = _detailPath + slideNumFile + '@2x.jpg';
       var imgSlide = '<div class="item"><img src="'+imgSrc+'" srcset="'+imgSrc+' 1440w, '+imgSrc2+' 2880w" alt="" />';
       imgSlide += '<a class="popup" target="_blank" href="'+imgSrc2+'"></a></div>';
 
@@ -100,7 +112,8 @@ $(window).load(function(){
       'little-big-house',
       'putnicky-dom-praha',
       'bory-urbanizmus',
-      'rekonstrukcia-rd-vieden'
+      'rekonstrukcia-rd-vieden',
+      'kino-leopoldov'
     ];
     var indexSlides = [];
     $.each(_indexSlides, function(index, val){
@@ -235,6 +248,35 @@ function fixCols()
     'top' : ($('#header').outerHeight())+'px'
   });
 }
+
+
+/*! Cycle2 lookahead plugin; Copyright (c) M.Alsup, 2013; version: 20130317 */
+(function($) {
+"use strict";
+
+$(document).on( 'cycle-initialized', function(e, opts) {
+    var key = 'cycle-look-ahead';
+
+    opts.container.on( 'cycle-before', function( e, opts, outgoing, incoming, fwd ) {
+        var index = fwd ? (opts.nextSlide + 1) : (opts.nextSlide - 1),
+            slide = $( opts.slides[ index ] ),
+            images;
+
+        if ( slide.length && ! slide.data( key ) ) {
+            slide.data( key, true );
+            // handle both cases: 1) slide is an image, 2) slide contains one or more images
+            images = slide.is( 'img[data-cycle-src]' ) ? slide : slide.find( 'img[data-cycle-src]' );
+            images.each(function() {
+                var img = $(this);
+                img.attr( 'src', img.attr('data-cycle-src') );
+                img.removeAttr( 'data-cycle-src' );
+            });
+        }
+    });
+
+});
+
+})(jQuery);
 
 
 /*!
